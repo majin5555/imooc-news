@@ -1,14 +1,9 @@
 <template>
 	<swiper class="home-swiper">
-		<swiper-item class="swiper-item">
+		<swiper-item v-for="(item ,index) in tab" :key="index" class="swiper-item">
 			<list-item></list-item>
 		</swiper-item>
-		<swiper-item class="swiper-item">
-			<list-item></list-item>
-		</swiper-item>
-		<swiper-item class="swiper-item">
-			<list-item></list-item>
-		</swiper-item>
+	 
 	</swiper>
 </template>
 
@@ -18,6 +13,14 @@
 	export default {
 		components: {
 			listItem
+		},
+		props: {
+			tab: {
+				type: Array, 
+				default () {
+					return []
+				}
+			}
 		},
 		data() {
 			return {
